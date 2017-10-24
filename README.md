@@ -15,4 +15,5 @@ Future features may include:
   - Autoprefixer 
   - Deployment to ZIP or staging server.
   - SASS 
+  - Partials and template compilation
 - Some scripts to allow us to more rapidly fork this repo
