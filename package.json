@@ -19,6 +19,7 @@
     "build": "webpack -p"
   },
   "dependencies": {
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "normalize.css": "^7.0.0"
   }
 }

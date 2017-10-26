@@ -33,6 +33,12 @@ You should only need to do this stuff once.
   - css-loader to load css and follow dependencies
   - extracttext to write css into output directory as styles.css
 
+### TODO
+- read and write other types of assets e.g. images
+- some subfolders in build directory
+- replace hardwired css vendor modules with yarn modules and @import
+- replace javascript modules with yarn modules and imports
+
 ### Project Setup
 1. Import this repository on github.
 2. `git clone` the new repo onto your computer.
