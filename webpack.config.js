@@ -10,31 +10,65 @@ module.exports = {
   entry: {
     app: './app.js', // resolves to src/app.js
   },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: "js/bundle.js",
+    // publicPath: "/"
+  },
+  devtool: "inline-source-map",
   module: {
     rules: [
       { 
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          use: "css-loader"
+          publicPath: "/",
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                importLoaders:1,
+                import: false, // PostCSS-import is handling our imports.
+                sourceMap: true
+              }
+            }, 
+            {
+              loader: "postcss-loader",
+              options: {
+                sourceMap: true
+              }
+            }
+            ]
         })
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        use: "file-loader"
+        test: /\.(woff|woff2|eot|ttf)$/,
+        use: [{
+          loader: "file-loader",
+          options: {
+            name: "[name].[ext]",
+            outputPath: "public/fonts/"
+          }
+        }]
+      },
+      {
+        test: /\.(png|jpg|gif|jpeg|svg)$/,
+        use: [{
+          loader: "file-loader",
+          options: {
+            name: "[name].[ext]",
+            outputPath: "public/images/"
+          }
+        }]
       }
     ]
   },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: "bundle.js"
-  },
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),    // New
+    contentBase: path.resolve(__dirname, 'dist'), 
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html"
     }),
-    new ExtractTextPlugin("styles.css")
+    new ExtractTextPlugin({filename: "css/bundle.css"})
     ]
 };

@@ -19,12 +19,16 @@ You should only need to do this stuff once.
    3. If you are not using NVM, just install yarn `brew install yarn` and you will get node automatically.
 
 
-### Running projects
-- `yarn build`to compile
+### Usage
+- development happens in /src/
+- go to app.js and add the modules you need to load—e.g. main.css, main.js
+- in those modules, import other modules that you need. 
+- `yarn build`to compile to /dist/
 - `yarn start:dev` to start server with livereload
+- index.html is automatically generated with dependencies linked in.  
 
 ### how it works 
-- src/main.js to define top level modules
+- src/app.js to define top level modules
 - webpack bundles all the scripts into one file and all the css into another
 - webpack has plugins
   - htmlwebpackplugin to generate our output HTML file. 
@@ -34,7 +38,7 @@ You should only need to do this stuff once.
   - extracttext to write css into output directory as styles.css
 
 ### TODO
-- read and write other types of assets e.g. images
+- read and write other types of assets e.g. images, fonts
 - some subfolders in build directory
 - replace hardwired css vendor modules with yarn modules and @import
 - replace javascript modules with yarn modules and imports
