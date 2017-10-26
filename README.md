@@ -24,6 +24,11 @@ You should only need to do this stuff once.
 3. Edit package.json to set project name etc. 
 4. `yarn install` to install dependencies. 
 
+To add packages `yarn add` or `yarn add --dev` for dev tools. 
+
+
+### Limitations
+- Using html-webpack-plugin to generate our HTML, this means we're limited to single pages for now (index.html). It's easy enough to generate multiple HTML files but if this is a regular use-case maybe there's a better way to implement this.
 
 ## Description
 
