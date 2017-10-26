@@ -18,6 +18,21 @@ You should only need to do this stuff once.
 2.2. If you are using NVM, get the latest node `nvm install node` then install yarn without node. `brew install yarn --without-node`
 2.3. If you are not using NVM, just install yarn `brew install yarn` and you will get node automatically.
 
+
+### Running projects
+- `yarn build`to compile
+- `yarn start:dev` to start server with livereload
+
+### how it works 
+- src/main.js to define top level modules
+- webpack bundles all the scripts into one file and all the css into another
+- webpack has plugins
+  - htmlwebpackplugin to generate our output HTML file. 
+    - this takes index.html as its input
+    - and magically adds links to styles and scripts in the right places
+  - css-loader to load css and follow dependencies
+  - extracttext to write css into output directory as styles.css
+
 ### Project Setup
 1. Import this repository on github.
 2. `git clone` the new repo onto your computer.
