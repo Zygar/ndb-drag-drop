@@ -38,10 +38,12 @@ You should only need to do this stuff once.
   - extracttext to write css into output directory as styles.css
 
 ### TODO
-- read and write other types of assets e.g. images, fonts
-- some subfolders in build directory
-- replace hardwired css vendor modules with yarn modules and @import
-- replace javascript modules with yarn modules and imports
+- Parse assets linked to in HTML. 
+- Source mapping for JS
+- Replace remaining JS modules with NPM modules and imports.
+
+- Dev/Production config (do later)
+- Some kinda alias for linking to static assets url("./image-name.png");
 
 ### Project Setup
 1. Import this repository on github.
@@ -53,7 +55,7 @@ To add packages `yarn add` or `yarn add --dev` for dev tools.
 
 
 ### Limitations
-- Using html-webpack-plugin to generate our HTML, this means we're limited to single pages for now (index.html). It's easy enough to generate multiple HTML files but if this is a regular use-case maybe there's a better way to implement this.
+- We are limited to single-pages for now (index.html.) 
 
 ## Description
 
