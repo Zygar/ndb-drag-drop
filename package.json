@@ -20,8 +20,8 @@
   },
   "scripts": {
     "start:dev": "webpack-dev-server",
-    "build:prod": "webpack -p",
-    "build:dev": "webpack"
+    "build:prod": "rm rf ./dist/ webpack -p",
+    "build:dev": "rm -rf ./dist/ && webpack"
   },
   "dependencies": {
     "jquery": "^3.2.1",
