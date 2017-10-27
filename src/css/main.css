@@ -1,0 +1,40 @@
+@import "normalize.css";
+@import url(vendor/html5bp-defaults.css);
+@import url(vendor/html5bp-helpers.css);
+@import url(fonts.css);
+
+
+/* TODO */
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/*  Palette
+    Red: #EA5E65;
+    Green: #7EC247;
+    Light Teal: #5CC4BF;
+    Dark Teal: #419794;
+    Light Yellow: #F5D015;
+    Dark Yellow: #B29630;
+    Light Blue: #23B5D0;
+    Dark Blue: #017484;
+    Dark Grey: #484C54;
+    Rich Black: #484C54;
+    Almost Black: #333;
+    Light Grey: #E6E6E6;
+    Very Light GreY: #F2F2F2;
+    Blue Grey: #ECEDEF;
+    Bluish Black: #212126;
+    Cool Grey: #212126;
+*/
+
+* {box-sizing: border-box;}
+html, body {height:100%;}
+body {font-family: "Lato", sans-serif;}
+.test {
+    width: 500px;
+    height: 400px;
+    /*background-image: url(img/test.jpg);*/
+}
+
+
