@@ -18,6 +18,10 @@ module.exports = {
   devtool: "inline-source-map",
   module: {
     rules: [
+      {
+        test: /\.html$/,
+        use: ["html-loader"]
+      },
       { 
         test: /\.css$/,
         use: ExtractTextPlugin.extract({

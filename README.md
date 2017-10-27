@@ -96,8 +96,7 @@ Some part of Webpack (I think file-loader, extract-text-plugin or html-webpack-p
 
 
 ## Upcoming Features
-### 0.2.1
-- Parse assets linked to in HTML. This isn't working yet. 
+### 0.2.2
 - Source mapping for JavaScript. 
 - Replace remaining JS modules with NPM modules and import rules. 
 

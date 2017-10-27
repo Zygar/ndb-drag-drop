@@ -3,13 +3,12 @@
 @import url(vendor/html5bp-helpers.css);
 @import url(fonts.css);
 
-
-/* TODO */
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
 /*  Palette
+    =========================================================================
     Red: #EA5E65;
     Green: #7EC247;
     Light Teal: #5CC4BF;
@@ -26,15 +25,11 @@
     Blue Grey: #ECEDEF;
     Bluish Black: #212126;
     Cool Grey: #212126;
+    ===========================================================================
 */
 
 * {box-sizing: border-box;}
 html, body {height:100%;}
 body {font-family: "Lato", sans-serif;}
-.test {
-    width: 500px;
-    height: 400px;
-    /*background-image: url(img/test.jpg);*/
-}
 
 
