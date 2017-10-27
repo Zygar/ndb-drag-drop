@@ -1,8 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-// const webpack = require('webpack');
+const webpack = require('webpack');
 
 module.exports = {
   // Set context to source directory
@@ -73,6 +72,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./index.html"
     }),
-    new ExtractTextPlugin({filename: "css/bundle.css"})
+    new ExtractTextPlugin({filename: "css/bundle.css"}),
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
+    })
     ]
 };
