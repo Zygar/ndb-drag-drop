@@ -1,5 +1,5 @@
 # OPT Boilerplate
-## Version 0.2.0 - Webpack
+## Version 0.2.3 - Webpack
 
 This is a blank boilerplate for beginning development of new learning modules. It features a lot of automation for common tasks, like prefixing your CSS or bundling assets. It also contains, or will contain, common, reusable bits and pieces like brand fonts and colours. 
 
@@ -19,8 +19,9 @@ The development setup for this includes
 - webpack - compiles and bundles your assets 
 - postcss - with cssNext. Write 100% modern CSS and let the machine do your fallbacks! And yes, this includes CSS variables. 
 
-### New in 0.2.0
-Partial rewrite, migrating to a node & Webpack based toolchain for easier package management. 
+### New in 0.2.3
+- Shims for old jQuery stuff
+- Partial rewrite, migrating to a node & Webpack based toolchain for easier package management. 
 
 
 ## Setup

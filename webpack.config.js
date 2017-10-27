@@ -18,6 +18,14 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.modernizrrc.js$/,
+        use: [ 'modernizr-loader' ]
+      },
+      {
+        test: /\.modernizrrc(\.json)?$/,
+        use: [ 'modernizr-loader', 'json-loader' ]
+      },
+      {
         test: /\.html$/,
         use: ["html-loader"]
       },
@@ -68,6 +76,11 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'), 
   },
+  resolve: {
+      alias: {
+        modernizr$: path.resolve(__dirname, ".modernizrrc.json")
+      }
+    },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html"
@@ -75,7 +88,10 @@ module.exports = {
     new ExtractTextPlugin({filename: "css/bundle.css"}),
     new webpack.ProvidePlugin({
         $: "jquery",
-        jQuery: "jquery"
+        jQuery: "jquery",
+        "window.jQuery": "jquery",
+        Modernizr: "modernizr",
+        "window.Modernizr": "modernizr"
     })
     ]
 };
