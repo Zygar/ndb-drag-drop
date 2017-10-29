@@ -7,6 +7,7 @@ By default, it's set up with a few packages:
 
 - jQuery 3.2.1
 - Normalize.css
+- Modernizr
 
 It also includes:
 
@@ -67,6 +68,9 @@ We are using yarn for package management, which is almost identical to NPM. Ther
 You can use require() to include packages in your scripts. For example, if you need to use the jQuery package in a component you can go `var $ = require('jquery')` at the top. If you want to import a file that isn't a package—like a page flipper you have built—you can just use a relative path like this: `var PageFlipper = require(./page-flipper)` 
 
 Note: as of 0.2.2 jQuery should now be available in all files by default via webpack.ProvidePlugin. 
+
+Legacy jQuery plugins can be used via shims. 
+
 
 #### CSS 
 ./src/css/main.css is our main source of truth. Your CSS can be modular too now!
