@@ -106,6 +106,8 @@ Some part of Webpack (I think file-loader, extract-text-plugin or html-webpack-p
 ### 0.2.4 (or 0.3?)
 - Restructure folder structure to include /vendor as well as /src for self-contained modules
 - Fix confusing feature—url() calls in CSS are relative to main.css, not the source file. This is a sideeffect of postcss importer inlining all the styles. 
+- Lighten up the default Modernizr config 
+- Deployment script
 
 ### After it's been tested in a project 
 - Dev/Production configs
