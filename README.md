@@ -104,7 +104,8 @@ Some part of Webpack (I think file-loader, extract-text-plugin or html-webpack-p
 
 ## Upcoming Features
 ### 0.2.4 (or 0.3?)
-- SUPER IMPORTANT FIX: we must add Babel, as older browsers fail when they hit any ES6.
+- Add Babel to support transpiling to old browsers, mainly for webpack-dev-server.
+- Add better version of Lato webfont with weights defined 
 - Restructure folder structure to include /vendor as well as /src for self-contained modules
 - Fix confusing feature—url() calls in CSS are relative to main.css, not the source file. This is a sideeffect of postcss importer inlining all the styles. 
 - Lighten up the default Modernizr config 
