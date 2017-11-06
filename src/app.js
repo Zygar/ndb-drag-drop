@@ -4,7 +4,13 @@
 var main = require("./js/main");
 
 /* Load Fonts */
-// We load our webfonts using ES6 imports—postcss won't correctly resolve their URL.
+/* We load our webfonts using ES6 imports. PostCSS + CSS-loader messes up
+   the resolution of their URL. It would be better to handle them natively
+   using css-loader (so that you can simply require() fonts and have the asset pipeline
+   configure itself) but this is an acceptable workaround for now. */
+
+   /* Comment out fonts you don't want in the final bundle. */
+   
 import LatoHairline from 'Fonts/lato-hairline/lato-hairline.css';  // 100
 import LatoThin from 'Fonts/lato-thin/lato-thin.css'; // 200
 import LatoLight from 'Fonts/lato-light/lato-light.css'; // 300
