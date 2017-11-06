@@ -115,17 +115,13 @@ It is configured to drop images into ./dist/public/images and fonts into ./dist/
 Some part of Webpack (I think file-loader, extract-text-plugin or html-webpack-plugin) will update the asset URLs in the bundled CSS/HTML file by magic. I'm a little unclear on how this works right now. Ask me again in a week. 
 
 
-## Upcoming Features
-- Restructure folder structure to include /vendor as well as /src for self-contained modules
-- Fix confusing feature—url() calls in CSS are relative to main.css, not the source file. This is a sideeffect of postcss importer inlining all the styles. 
+## Open Questions
+- Is there a better folder structure we can use for non-npm stuff? (Especially w/r/t vendor modules) 
+- Is there a better way to handle url() calls in the CSS? Currently PostCSS inlines everything into main.css, which sets css-loader's context to src/ and causes assets to not resolve. Best solution at present is defining aliases.
+- How could this package be updateable downstream? 
 
-### SOMETIME
-- turn this into a package that is updateable. 
-
-### After it's been tested in a project 
-- Dev/Production configs
-- Deployment scripts
-- Easier aliases for linking to static assets 
-- Templating Language! 
-- Easier workflow for cloning latest version of boilerplate into a new project. 
-- More PostCSS fanciness! 
+### Wishlist
+- Deployment scripts to staging and dev. 
+- Initialization script for spinning up new project.
+- Some kind of templating language. 
+- Better asset pipeline
