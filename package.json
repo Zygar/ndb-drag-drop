@@ -1,6 +1,6 @@
 {
   "name": "OPT-Boilerplate",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "A blank slate for learning modules using modern development practices and toolchains.",
   "main": "main.js",
   "repository": "https://github.com/Zygar/OPT-Boilerplate.git",
