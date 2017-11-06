@@ -9,17 +9,17 @@ module.exports = {
   entry: {
     app: './app.js', // resolves to src/app.js
   },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: "js/bundle.js",
-    // publicPath: "/"
-  },
-  devtool: "inline-source-map",
   module: {
     rules: [
       {
-        test: /\.modernizrrc.js$/,
-        use: [ 'modernizr-loader' ]
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       },
       {
         test: /\.modernizrrc(\.json)?$/,
@@ -28,28 +28,6 @@ module.exports = {
       {
         test: /\.html$/,
         use: ["html-loader"]
-      },
-      { 
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          publicPath: "/",
-          use: [
-            {
-              loader: "css-loader",
-              options: {
-                importLoaders:1,
-                import: false, // PostCSS-import is handling our imports.
-                sourceMap: true
-              }
-            }, 
-            {
-              loader: "postcss-loader",
-              options: {
-                sourceMap: true
-              }
-            }
-            ]
-        })
       },
       {
         test: /\.(woff|woff2|eot|ttf)$/,
@@ -73,19 +51,16 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'dist'), 
-  },
   resolve: {
       alias: {
-        modernizr$: path.resolve(__dirname, ".modernizrrc.json")
+        modernizr$: path.resolve(__dirname, ".modernizrrc.json"), 
+        Fonts: path.resolve(__dirname, "src/fonts/")
       }
     },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html"
     }),
-    new ExtractTextPlugin({filename: "css/bundle.css"}),
     new webpack.ProvidePlugin({
         $: "jquery",
         jQuery: "jquery",

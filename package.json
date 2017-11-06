@@ -1,12 +1,16 @@
 {
   "name": "OPT-Boilerplate",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A blank slate for learning modules using modern development practices and toolchains.",
   "main": "main.js",
   "repository": "https://github.com/Zygar/OPT-Boilerplate.git",
   "author": "Andy Wilkinson <hello@andy.town>",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.5",
+    "@babel/preset-env": "^7.0.0-beta.5",
+    "babel-loader": "8.0.0-beta.0",
+    "caniuse-lite": "^1.0.30000758",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
@@ -19,13 +23,16 @@
     "postcss-cssnext": "^3.0.2",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
+    "style-loader": "^0.19.0",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3"
+    "webpack-dev-server": "^2.9.3",
+    "webpack-merge": "^4.1.1",
+    "zip-webpack-plugin": "^2.0.0"
   },
   "scripts": {
-    "start:dev": "webpack-dev-server",
-    "build:prod": "rm rf ./dist/ webpack -p",
-    "build:dev": "rm -rf ./dist/ && webpack"
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build:dev": "rm -rf ./dist/ && webpack --config webpack.dev.js && open ./dist -a Finder",
+    "build:prod": "rm -rf ./prod/ && webpack --config webpack.prod.js && open ./prod -a Finder"
   },
   "dependencies": {
     "jquery": "^3.2.1",

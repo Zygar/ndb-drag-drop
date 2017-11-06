@@ -20,9 +20,21 @@ The development setup for this includes
 - webpack - compiles and bundles your assets 
 - postcss - with cssNext. Write 100% modern CSS and let the machine do your fallbacks! And yes, this includes CSS variables. 
 
-### New in 0.2.3
-- Shims for old jQuery stuff
-- Partial rewrite, migrating to a node & Webpack based toolchain for easier package management. 
+### New in 0.3
+- OPT brand colors accessible as CSS4 variables. `color: var(--light-green);` Definitions are in colors.css.
+- Import the weights of Lato that you need. Have them accessible in your CSS with zero configuration, and zero bloat in production. Just go to app.js and `"import lato-[weight] from 'Fonts/lato-[weight]'`
+- `yarn start` server is now accessible over LAN for easier testing on mobile devices.
+- Separate development and production configurations. 
+- `yarn build:prod` generates a named, minified, polyfilled, zipped bundle ready for iQualify.
+- Adds babel, which will make your modern javascript backwards compatible. 
+- Sourcemaps are enabled in production server for easy debugging of your stuff.
+- Fixes bug where static assets wouldn't load correctly on production server
+
+
+
+#### New and notable in previous versions
+- Modernizr + Modernizr-loader implemented, pick your modules in .modernizrrc.json and they will be made available to all your jQuery plugins
+- jQuery accessible on a global variable to support legacy plugins. 
 
 
 ## Setup
@@ -43,13 +55,13 @@ You should only need to do this stuff once.
 2. `git clone` the new repo onto your computer.
 3. Edit package.json to set project name etc. 
 4. `yarn install` to install dependencies. 
-5. `yarn start:dev` will compile your assets, start a server on localhost:8080 and live-reload any changes. 
-6. `yarn build:dev` will create a compiled version of your website in ./dist/. This will automatically delete your old dist folder so you don't have to worry about outdated files causing issues. 
+5. `yarn start` will compile your assets, start a server on localhost:8080 and live-reload any changes. Pass argument `--port [NUM]` to run on port of your choice. e.g. `yarn start --port 3200` 
+6. `yarn build:dev` will create a compiled version of your website in ./dist/. Test this as you will. It will  automatically delete your old dist folder so you don't have to worry about outdated files causing issues. 
+7. `yarn build:prod` will compile, auto-prefix and minify your build into ./prod/. You will also get a bundled zip file, ready for iQualify, in the same folder. 
 
 To add packages `yarn add [name]` or `yarn add --dev [name]` for dev tools like Webpack. 
 
 #### Other Commands
-- `yarn build:prod` (not currently implemented) will create a minified bundle and zip it up, ignoring .DS_Store files. 
 - `yarn deploy:testing` (not currently implemented) will run a deploy script to package and deploy to Azure at creative-design-testing.azurewebsites.net.
 - `yarn deploy:portfolio` (not currently implemented) will run a deploy script to package and deploy to Azure at creative-design.azurewebsites.net 
 
@@ -77,9 +89,10 @@ Legacy jQuery plugins can be used via shims.
 
 The CSS build chain looks like this:
 
-1. Webpack uses postcss-import to read in your CSS files. postcss-import will trace any @import rules you have defined and copy the file in. Any other postCSS transforms, like auto-prefixing, are done at this stage too.
-2. The merged, postcss'd data gets sent to css-loader. I'm still unclear on what css-loader actually does which postcss doesn't, but it's recommended to use them together so that's what we have right now. I think it might do the legwork of sifting through your CSS files to find url() definitions. 
-3. css-loader passes the data onto ExtractTextPlugin, which is configured (in webpack.config.js) to output to ./dist/css/bundle.css. 
+1. When a CSS file is encountered as a dependency (because it has been called with import, require or @import), a rule tells it to use postcss-import to parse and transform the CSS. 
+2. postcss-import will trace any @import rules you have defined and copy the file in. Any other postCSS transforms, like auto-prefixing, are done at this stage too.
+3. The merged, postcss'd data gets sent to css-loader, which will minify your assets (on production) as well as resolving url() definitions.
+4. css-loader passes the data onto ExtractTextPlugin, which is configured to output to ./dist/css/bundle.css. 
 
 Inline source maps are enabled on CSS, so even though Webpack merges all of your files, you can track back which file is responsible for setting each rule. (e.g. tracking h1 back to normalize.css)
 
@@ -103,16 +116,11 @@ Some part of Webpack (I think file-loader, extract-text-plugin or html-webpack-p
 
 
 ## Upcoming Features
-### 0.2.4 (or 0.3?)
-- Tweak to build script, open finder by default.
-- Fix root relative url being specified for static assets like webfonts
-- Add Babel to support transpiling to old browsers, mainly for webpack-dev-server.
-- Add better version of Lato webfont with weights defined 
 - Restructure folder structure to include /vendor as well as /src for self-contained modules
 - Fix confusing feature—url() calls in CSS are relative to main.css, not the source file. This is a sideeffect of postcss importer inlining all the styles. 
-- Lighten up the default Modernizr config 
-- Build scripts. Development, Staging, bundled zip. Staging/bundle exclude sourcemaps, minify hardcore. 
-- CSS variables for colours 
+
+### SOMETIME
+- turn this into a package that is updateable. 
 
 ### After it's been tested in a project 
 - Dev/Production configs
