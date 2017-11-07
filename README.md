@@ -1,5 +1,4 @@
-# OPT Boilerplate
-## Version 0.2.3 - Webpack
+# Hazard Matcher
 
 This is a blank boilerplate for beginning development of new learning modules. It features a lot of automation for common tasks, like prefixing your CSS or bundling assets. It also contains, or will contain, common, reusable bits and pieces like brand fonts and colours. 
 

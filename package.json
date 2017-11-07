@@ -1,11 +1,12 @@
 {
-  "name": "OPT-Boilerplate",
-  "version": "0.3.0",
-  "description": "A blank slate for learning modules using modern development practices and toolchains.",
+  "name": "hazard-matcher",
+  "version": "0.1.0",
+  "description": "Hazard matcher for pharma",
   "main": "main.js",
   "repository": "https://github.com/Zygar/OPT-Boilerplate.git",
   "author": "Andy Wilkinson <hello@andy.town>",
   "license": "MIT",
+  "private": true,
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.5",
     "@babel/preset-env": "^7.0.0-beta.5",
