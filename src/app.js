@@ -1,6 +1,6 @@
 // App.js
 // We specify our main modules here.
-
+import "babel-polyfill";
 var main = require("./js/main");
 
 /* Load Fonts */

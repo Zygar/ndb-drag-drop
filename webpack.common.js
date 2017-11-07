@@ -6,9 +6,7 @@ const webpack = require('webpack');
 module.exports = {
   // Set context to source directory
   context: path.resolve(__dirname, 'src'),
-  entry: {
-    app: './app.js', // resolves to src/app.js
-  },
+  entry: ['babel-polyfill', './app.js'],
   module: {
     rules: [
       {
