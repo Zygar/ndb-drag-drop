@@ -18,37 +18,31 @@
 html, body {height:100%;}
 body {font-family: "Lato", sans-serif;}
 
-/* Test */
 
+main {
+  display: flex;
+  width: 100%;
+}
+
+main > div {
+  flex-grow: 1;
+}
+
+.source {
+  background-color: var(--blue-grey);
+}
+
+.destination {
+  background-color: var(--off-white)
+}
+
+.draggable {
+  background-color: var(--light-green);
+  height: 4em;
+}
 .droppable {
-  cursor: grab;
-}
-.draggable--is-dragging .droppable {
-  cursor: move;
-  cursor: grabbing;
-}
-.drag-me {
-  width: 100px;
-  height: 100px;
-  background-color: red
-}
-.order {
-  background-color: var(--light-red);
-  padding: 2em;
-}
-.areas {
-  background-color: var(--light-green)
-}
-
-.draggable-source--is-dragging {
-  opacity: 0.2;
-}
-
-.draggable-mirror {
-  cursor: move;
-}
+  background-color: var(--light-blue);
+  height: 4em;
 
 
-main {display: flex; flex-wrap: wrap; font-weight: 900!important;}
-.droppable {width: 104px; height: 104px; border: 2px solid black;}
-li {display: block}
+}
