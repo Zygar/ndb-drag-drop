@@ -8,53 +8,7 @@
 /* ==========================================================================
    Our Imports
    ========================================================================== */
-
-/*@import url(fonts.css);*/
-
 @import url(colors.css);
-
-
-
-
-/* ==========================================================================
-   Example styles. Delete these.
-   ========================================================================== */
-
-.lato-specimen { font-size: 1.25em; }
-.italic {font-style: italic;}
-.lato-100 {font-weight:100;}
-    .lato-100::before {content:"Weight 100";  font-size: 0.5em; display:block; text-transform: uppercase; margin-top: 1em}
-.lato-200 {font-weight:200;}
-    .lato-200::before {content:"Weight 200";  font-size: 0.5em; display:block; text-transform: uppercase; margin-top: 1em}
-.lato-300 {font-weight:300;}
-    .lato-300::before {content:"Weight 300";  font-size: 0.5em; display:block; text-transform: uppercase; margin-top: 1em}
-.lato-400 {font-weight:400;}
-    .lato-400::before {content:"Weight 400";  font-size: 0.5em; display:block; text-transform: uppercase; margin-top: 1em}
-.lato-500 {font-weight:500;}
-    .lato-500::before {content:"Weight 500";  font-size: 0.5em; display:block; text-transform: uppercase; margin-top: 1em}
-.lato-600 {font-weight:600;}
-    .lato-600::before {content:"Weight 600";  font-size: 0.5em; display:block; text-transform: uppercase; margin-top: 1em}
-.lato-700 {font-weight:700;}
-    .lato-700::before {content:"Weight 700";  font-size: 0.5em; display:block; text-transform: uppercase; margin-top: 1em}
-.lato-800 {font-weight:800;}
-    .lato-800::before {content:"Weight 800";  font-size: 0.5em; display:block; text-transform: uppercase; margin-top: 1em}
-.lato-900 {font-weight:900;}
-    .lato-900::before {content:"Weight 900";  font-size: 0.5em; display:block; text-transform: uppercase; margin-top: 1em}
-
-.color-specimens {display:flex; list-style: none; padding: 0; flex-wrap: wrap} 
-.color-specimen { width: 100px; height: 100px; margin: 0; padding: 0;}
-    .light-yellow {background-color: var(--light-yellow)}
-    .dark-yellow {background-color: var(--dark-yellow)}
-    .light-blue {background-color: var(--light-blue)}
-    .dark-blue {background-color: var(--dark-blue)}
-    .light-green {background-color: var(--light-green)}
-    .dark-green {background-color: var(--dark-green)}
-    .light-red {background-color: var(--light-red)}
-    .dark-red {background-color: var(--dark-red)}
-    .off-black {background-color: var(--off-black)}
-    .blue-grey {background-color: var(--blue-grey)}
-    .off-white {background-color: var(--off-white)}
-
 
 /* ==========================================================================
    Your Styles
@@ -64,4 +18,37 @@
 html, body {height:100%;}
 body {font-family: "Lato", sans-serif;}
 
+/* Test */
 
+.droppable {
+  cursor: grab;
+}
+.draggable--is-dragging .droppable {
+  cursor: move;
+  cursor: grabbing;
+}
+.drag-me {
+  width: 100px;
+  height: 100px;
+  background-color: red
+}
+.order {
+  background-color: var(--light-red);
+  padding: 2em;
+}
+.areas {
+  background-color: var(--light-green)
+}
+
+.draggable-source--is-dragging {
+  opacity: 0.2;
+}
+
+.draggable-mirror {
+  cursor: move;
+}
+
+
+main {display: flex; flex-wrap: wrap; font-weight: 900!important;}
+.droppable {width: 104px; height: 104px; border: 2px solid black;}
+li {display: block}
