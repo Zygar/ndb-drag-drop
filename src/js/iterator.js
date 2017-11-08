@@ -35,8 +35,8 @@ const GenerateDomElements = function(pairings) {
 // Template generation in here for now.
 const GenerateSourceElement = function (source, index) {
     let ElementTemplate =  `<div class='source'>
-                                <div class='source-draggable  isDraggable'  data-answer=${index}">
-                                    <strong>${source.text}</strong>
+                                <div class='source-draggable  isDraggable' id='src-${index}' data-answer=${index}>
+                                    <strong>${source.text} </strong>
                                 </div>
                             </div>`;
     return ElementTemplate;
@@ -45,7 +45,7 @@ const GenerateSourceElement = function (source, index) {
 const GenerateDestinationElement = function (dest, index) {
     let ElementTemplate = `<div class='destination'>
                              <h2>${dest.text}</h2>
-                             <div class='destination-droppable  isDraggable' data-answer=${index}">
+                             <div class='destination-droppable  isDraggable' id='dest-${index}'  data-answer=${index}>
                              </div>
                             </div>`;
     return ElementTemplate;
