@@ -36,8 +36,8 @@
     "build:prod": "rm -rf ./prod/ && webpack --config webpack.prod.js && open ./prod -a Finder"
   },
   "dependencies": {
-    "@shopify/draggable": "^1.0.0-beta.3",
     "babel-polyfill": "^6.26.0",
+    "interact.js": "^1.2.8",
     "jquery": "^3.2.1",
     "normalize.css": "^7.0.0"
   }
