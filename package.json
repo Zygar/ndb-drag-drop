@@ -37,8 +37,9 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "interact.js": "^1.2.8",
     "jquery": "^3.2.1",
-    "normalize.css": "^7.0.0"
+    "jquery-ui-touch-punch": "^0.2.3",
+    "normalize.css": "^7.0.0",
+    "webpack-jquery-ui": "^1.0.0"
   }
 }
