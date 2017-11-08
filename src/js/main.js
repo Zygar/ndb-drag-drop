@@ -21,11 +21,27 @@ var drake = dragula(InitializedDraggables, {
     }
 });
 
-
-
 // Now we bind events 
 drake.on('drop', function(el, target, source) {
-    // First off we will trigger an animation
+    // We'll first animate the snap-to. 
+        // We grab mirror's position
+        // We diff it against target's position
+        // We apply a translate to el 
+        // which then transitions to a 0 translate
+        // then we'll wait a second to "check" the answer
+
+    // Check Answer
+        // if correct
+            // we'll trigger the event unbinder 
+            // we'll flash a triumphant style 
+
+        // if incorrect, we'll do a few things to move it back from whence it came 
+            // we move the element back to source node
+            // we trigger an animation
+                // calculate distance between source/target
+                // apply an offset to el
+                // and then transition to a 0 offset. 
+            // We also trigger a flash of a style
 
     // On correct answer we will unbind like so 
     let droppableInstance = drake.containers.indexOf(target);
