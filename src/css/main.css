@@ -4,6 +4,7 @@
 @import "normalize.css";
 @import url(vendor/html5bp-defaults.css);
 @import url(vendor/html5bp-helpers.css);
+@import url('../../node_modules/dragula/dist/dragula.css');
 
 /* ==========================================================================
    Our Imports
@@ -31,19 +32,30 @@ main > div {
 
 .source {
   background-color: var(--blue-grey);
+  width: 50%;
 }
 
 .destination {
-  background-color: var(--off-white)
+  background-color: var(--off-white);
+  width:50%;
 }
 
+.draggable-container {
+  background-color: black;
+  padding: 1em;
+  min-height:4em;
+}
+
+.droppable {
+  background-color: var(--light-blue);
+  height: 7em;
+}
+
+.incorrect {
+  background-color: var(--light-red);
+}
 .draggable {
   background-color: var(--light-green);
   height: 4em;
 }
-.droppable {
-  background-color: var(--light-blue);
-  height: 4em;
 
-
-}

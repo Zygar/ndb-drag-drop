@@ -18,22 +18,32 @@
         </header>        
         <main role="main">
             <div class="source">
-                <div class="draggable">One</div>
-                <div class="draggable">Two</div>
-                <div class="draggable">Three</div>
+                <div class="isdraggable  draggable-container" data-question="1">
+                    <div class="draggable">One</div>    
+                </div>
+                
+                <div class="isdraggable  draggable-container">
+                    <div class="draggable">Two</div>
+                </div>
+                <div class="isdraggable  draggable-container">
+                    <div class="draggable">Three</div>
+                </div>
+                <div class="isdraggable  draggable-container">
+                    
+                </div>
             </div>
             <div class="destination">
                 <div class="droppable-container">
                     <h2>Answer One</h2>
-                    <div class="droppable"></div>
+                    <div class="isdraggable  droppable"></div>
                 </div>
                 <div class="droppable-container">
                     <h2>Answer Two</h2>
-                    <div class="droppable"></div>
+                    <div class="isdraggable  droppable" data-answer="1"></div>
                 </div>
                 <div class="droppable-container">
                     <h2>Answer Three</h2>
-                    <div class="droppable"></div>
+                    <div class="isdraggable  droppable"></div>
                 </div>
             </div>
 
