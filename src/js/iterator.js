@@ -6,28 +6,17 @@ const ShuffleArray = require("./shuffle-array.js");
 // Looking like this [{text, url}, {text, url}]
 
 const GenerateDomElements = function(pairings) {
-    let sources = SplitTable(pairings, 0),
+    let sources = SplitTable(pairings, 0), 
         destinations = SplitTable(pairings, 1),
         sourcesTemplates = [],
         destinationsTemplates = [];
 
     for (var i = sources.length - 1; i >= 0; i--) {
-        // For Each Source
-        // We will generate some HTML
-        // And then when this is complete
-        // We will append that HTML to the DOM
-
         let populatedTemplate = GenerateSourceElement(sources[i], i);
         sourcesTemplates.push(populatedTemplate); 
     };
     
-    // Append Sources to DOM
-
-    for (var i = sources.length - 1; i >= 0; i--) {
-        // For Each Destination
-        // We will generate some HTML
-        // When this is complete
-        // We will append to the dom
+    for (var i = destinations.length - 1; i >= 0; i--) {
         let populatedTemplate = GenerateDestinationElement(destinations[i], i);
         destinationsTemplates.push(populatedTemplate); 
     }
@@ -39,14 +28,14 @@ const GenerateDomElements = function(pairings) {
     
     // RETURN a multivariate array of DOM objects: sources and destinations.
     // This will be passed on to Dragula later 
-    console.log([sourcesElements, destinationsElements]);
+    // console.log([sourcesElements, destinationsElements]);
     return [sourcesElements, destinationsElements]
 }
 
 // Template generation in here for now.
 const GenerateSourceElement = function (source, index) {
     let ElementTemplate =  `<div class='source'>
-                                <div class='source-draggable'  data-answer=${index}">
+                                <div class='source-draggable  isDraggable'  data-answer=${index}">
                                     <strong>${source.text}</strong>
                                 </div>
                             </div>`;
@@ -56,7 +45,7 @@ const GenerateSourceElement = function (source, index) {
 const GenerateDestinationElement = function (dest, index) {
     let ElementTemplate = `<div class='destination'>
                              <h2>${dest.text}</h2>
-                             <div class='destination-droppable' data-answer=${index}">
+                             <div class='destination-droppable  isDraggable' data-answer=${index}">
                              </div>
                             </div>`;
     return ElementTemplate;

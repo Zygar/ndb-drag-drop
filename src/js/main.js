@@ -1,13 +1,26 @@
 var dragula = require("dragula");
 const inputData = require("./data.js");
 const iterator = require("./iterator.js");
+const GetArrayOfDraggables = require("./get-array-of-draggables.js")
 
-// Iterator appends the DOM elements
-// and then returns them as an array for binding.
-iterator(inputData); 
+var InitializedDraggables = GetArrayOfDraggables(iterator(inputData));
+// GetArrayOfDraggables triggers the bootstrap of the document
+// as it depends on the output of our iterator.
+// The iterator parses the data and initially generates/appends the DOM elements
+// This may not be the cleanest option but we can refactor in version 2
 
+var drake = dragula(InitializedDraggables, {
+    
+})
 
-
+// console.log(sourceContainers, destContainers);
+// var drake = dragula([sourceContainers, destContainers])
+// console.log(drake.containers);
+// Dragula expects to receive an array of the draggable HTMLElements. 
+// So what we need to do is take the output of inputData
+// and explode each source's child (.source > .source-draggable ) into an array
+// as well as exploding each destination's child (.destination > .destination-droppable ) into an array
+// and then merging the two arrays before Dragula gets it 
 
 
 
