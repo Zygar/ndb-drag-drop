@@ -1,6 +1,24 @@
 var dragula = require("dragula");
-window.addEventListener( 'touchmove', function() {})
+const inputData = require("./data.js");
+const iterator = require("./iterator.js");
 
+// Iterator appends the DOM elements
+// and then returns them as an array for binding.
+iterator(inputData); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+window.addEventListener( 'touchmove', function() {})
 
 
     var source = Array.from(document.querySelectorAll('.draggable-container'));
@@ -58,9 +76,9 @@ draggable.on('drop', function(el, target, source){
     $el.css('transform', 'translate(' + offsetLeft + 'px, ' + offsetTop + 'px)');
 
     setTimeout(function($el) {
-        $el.css('transition', 'all 0.5s ease-in-out');
+        $el.css('transition', 'all 0.1s ease-in');
         $el.css('transform','translate(0px, 0px)')
-    }, 250, $el);
+    }, 10, $el);
 
     validateAnswer(el, target, source);
 })
@@ -74,7 +92,8 @@ function isAnswerCorrect(target, source) {
 }
 
 function validateAnswer(el, target, source) {
-    if ( isAnswerCorrect(target,source) ) {
+    console.log(el,target,source)
+    if ( isAnswerCorrect(target,el) ) {
         target.classList.remove("isdraggable");
     } else {
         target.classList.add("incorrect");
