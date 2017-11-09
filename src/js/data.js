@@ -13,5 +13,12 @@ module.exports = [
   ],[
     {text: "Opiates", image: ""},
     {text: "Restricted Area", image: ""}
+  ],[
+    {text: "Cannabis", image: ""},
+    {text: "Not legal", image: ""}
+  ],
+  [
+    {text: "Cocaine", image: ""},
+    {text: "Legal in Auckland", image: ""}
   ]
 ]
