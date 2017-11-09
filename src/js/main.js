@@ -3,12 +3,15 @@ const inputData = require("./data.js");
 const iterator = require("./iterator.js");
 const GetArrayOfDraggables = require("./get-array-of-draggables.js")
 
-var InitializedDraggables = GetArrayOfDraggables(iterator(inputData));
-// GetArrayOfDraggables triggers the bootstrap of the document
-// as it depends on the output of our iterator.
-// The iterator parses the data and initially generates/appends the DOM elements
-// This may not be the cleanest option but we can refactor in version 2
+// Bootstraps the DOM
+const InitializedDomElements = iterator(inputData);
 
+// Turns the target drag/drop zones into an array of HTMLElements
+// (which is what our Dragging library expects)
+const InitializedDraggables = GetArrayOfDraggables(InitializedDomElements);
+window.addEventListener( 'touchmove', function() {})
+// Can I drop here - helper function which Dragula 
+// uses to check if the element we're "over" is an acceptable dropzone
 var canIDropHere = function (el, target, source) {
     if (target.classList.contains('destination-droppable')) {
         return true
@@ -21,135 +24,117 @@ var drake = dragula(InitializedDraggables, {
     }
 });
 
-// Now we bind events 
-drake.on('drop', function(el, target, source) {
-    // We'll first animate the snap-to. 
-        // We grab mirror's position
-        // We diff it against target's position
-        // We apply a translate to el 
-        // which then transitions to a 0 translate
-        // then we'll wait a second to "check" the answer
+var currentMirrorInstance;  
 
-    // Check Answer
-        // if correct
-            // we'll trigger the event unbinder 
-            // we'll flash a triumphant style 
+const interactives = {
+    onPlace: function(el, mirror, dropzone) {
+        console.log(el,mirror,dropzone);
+        let $el = $(el),
+            $mirror = $(mirror),
+            $dropzone = $(dropzone);
 
-        // if incorrect, we'll do a few things to move it back from whence it came 
-            // we move the element back to source node
-            // we trigger an animation
-                // calculate distance between source/target
-                // apply an offset to el
-                // and then transition to a 0 offset. 
-            // We also trigger a flash of a style
+        let mirrorPos = $mirror.offset(),
+            dropzonePos = $dropzone.offset();
 
-    // On correct answer we will unbind like so 
-    let droppableInstance = drake.containers.indexOf(target);
-    drake.containers.splice(droppableInstance, 1);
-    
-    let draggableInstance = drake.containers.indexOf(source);
-    drake.containers.splice(draggableInstance, 1);
+        let diffTop = mirrorPos.top - dropzonePos.top,
+            diffLeft = mirrorPos.left - dropzonePos.left;
 
-    // Otherwise we need to invoke a reset. 
+        $el.css('transform', 'translate(' + diffLeft + 'px, ' + diffTop + 'px)');
+        // BEWARE the race condition
+        setTimeout(function($el) {
+            console.log("onplace firing")
+            $el.css('transition', 'all 0.1s ease-in');
+            $el.css('transform','translate(0px, 0px)')
+        }, 10, $el);
+    },
+    onWrongAnswer: function(el, origSource, dropzone){
+        let $el = $(el),
+            $origSource = $(origSource),
+            $dropzone = $(dropzone);
+
+        let origSourcePos = $origSource.offset(),
+            dropzonePos = $dropzone.offset();
+
+        let diffTop = dropzonePos.top - origSourcePos.top,
+            diffLeft = dropzonePos.left - origSourcePos.left;
+
+        $el.appendTo($origSource);
+        $el.css('transform', 'translate(' + diffLeft + 'px, ' + diffTop + 'px)');
+
+        // BEWARE the race condition
+        setTimeout(function($el) {
+            console.log("wronganswer firing")
+            $el.css('transition', 'all 0.1s ease-in');
+            $el.css('transform','translate(0px, 0px)')
+        }, 10, $el);
+    },
+    onDropped: function(el, mirror, origSource){
+        let $el = $(el),
+            $mirror = $(mirror),
+            $origSource = $(origSource);
+
+        let origSourcePos = $origSource.offset(),
+            mirrorPos = $mirror.offset();
+
+        let diffTop = mirrorPos.top - origSourcePos.top,
+            diffLeft = mirrorPos.left - origSourcePos.left;
+
+        // $el.appendTo($origSource);
+        $el.css('transform', 'translate(' + diffLeft + 'px, ' + diffTop + 'px)');
+
+        setTimeout(function($el) {
+            $el.css('transition', 'all 0.1s ease-in');
+            $el.css('transform','translate(0px, 0px)')
+        }, 10, $el);
+    }
+}
+
+drake.on('drag', function(el){
+    $(document).on('touchstart', function(e) {
+        e.preventDefault();
+    });
+});
+
+
+drake.on('cloned', function(clone) {
+    // Slightly dirty hack where we use 
+    // the global scope to cache the mirror. 
+    currentMirrorInstance = clone;
 })
 
-// console.log(sourceContainers, destContainers);
-// var drake = dragula([sourceContainers, destContainers])
-// console.log(drake.containers);
-// Dragula expects to receive an array of the draggable HTMLElements. 
-// So what we need to do is take the output of inputData
-// and explode each source's child (.source > .source-draggable ) into an array
-// as well as exploding each destination's child (.destination > .destination-droppable ) into an array
-// and then merging the two arrays before Dragula gets it 
+drake.on('cancel', function(el, source) {
+    interactives.onDropped(el, currentMirrorInstance, source);
+    $(document).off('touchstart');
+})
 
+function isAnswerCorrect(source, dest) {
+    if (source.dataset.answer === dest.dataset.answer) {
+        return true
+    } else {
+        return false
+    }
+}
 
+function validateAnswer(el, source, target){   
+    if (isAnswerCorrect(source, target)) {
+        // Unbind source and target
+        let droppableInstance = drake.containers.indexOf(target);
+        drake.containers.splice(droppableInstance, 1);
+        let draggableInstance = drake.containers.indexOf(source);
+        drake.containers.splice(draggableInstance, 1);
 
-
-
-
-
-
-
-
-// window.addEventListener( 'touchmove', function() {})
-
-
-//     var source = Array.from(document.querySelectorAll('.draggable-container'));
-//     var dest = Array.from(document.querySelectorAll('.droppable'));
-//     var draggables = source.concat(dest);
-//     // console.log(source, dest)
-
-
-
-// var draggable = dragula({
-//     isContainer: function (el) {
-//         return el.classList.contains('isdraggable');
-//     },
-//     accepts: function(el, target, source, sibling) {
-//         if (target.classList.contains('draggable-container')) {
-//             return false
-//         } else if (target.classList.contains('droppable')) {
-//             console.log("can drop here")
-//             return true
-//         }
-//         // console.log(el, target, source, sibling)
-//     }
-// });
-
-// draggable.on('drag', function(el){
-//     $(document).on('touchstart', function(e) {
-//         e.preventDefault();
-//     });
-// });
-
-// var mirror; 
-// // We put mirror on the global scope so it's accessible later. 
-
-// draggable.on('cloned', function(clone, original, type){
-//     mirror = clone;
-//     console.log(type, mirror);
-// })
-
-// draggable.on('drop', function(el, target, source){
-//     // Prevents janky scroll on touch devices 
-//     $(document).off('touchstart');
-
-//     var $el = $(el);
-//     var cloneZone = $(mirror).offset();
-//     var dropZone = $el.offset();
-    
-//     console.log('clone was at', cloneZone);
-//     console.log('dropzone is at', dropZone);
-
-//     var offsetTop = cloneZone.top - dropZone.top;
-//     var offsetLeft = cloneZone.left - dropZone.left;
-
-//     console.log(offsetTop, offsetLeft);
-    
-//     $el.css('transform', 'translate(' + offsetLeft + 'px, ' + offsetTop + 'px)');
-
-//     setTimeout(function($el) {
-//         $el.css('transition', 'all 0.1s ease-in');
-//         $el.css('transform','translate(0px, 0px)')
-//     }, 10, $el);
-
-//     validateAnswer(el, target, source);
-// })
-
-// function isAnswerCorrect(target, source) {
-//     // console.log(target,source);
-//     var a = source.dataset.question;
-//     var b = target.dataset.answer;
-//     // console.log(a,b);
-//     if (a==b) {console.log("yas"); return true} else {console.log("boo"); return false}
-// }
-
-// function validateAnswer(el, target, source) {
-//     console.log(el,target,source)
-//     if ( isAnswerCorrect(target,el) ) {
-//         target.classList.remove("isdraggable");
-//     } else {
-//         target.classList.add("incorrect");
-//         source.appendChild(el);
-//     }
-// }
+        $(target).css("background-color", "green")
+        console.log("Correct.")
+    } else {
+        interactives.onWrongAnswer(el, source, target);
+        $(target).css("background-color", "red")
+        console.log("Incorrect.")
+    }
+}
+// Now we bind events 
+drake.on('drop', function(el, target, source) {
+    $(document).off('touchstart');
+    console.log("I been dropped ")
+    interactives.onPlace(el, currentMirrorInstance, target);
+    validateAnswer(el, source, target)
+})
