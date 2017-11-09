@@ -48,6 +48,8 @@ const GenerateSourceElement = function (source, index) {
 const GenerateDestinationElement = function (dest, index) {
     let ElementTemplate = `<div class='destination'>
                              <h2>${dest.text}</h2>
+                             ${dest.description ? `<p>${dest.description}</p>` : ''}
+                             ${dest.image ? `<img src='${dest.image}'>` : ''}
                              <div class='destination-droppable  isDraggable' id='dest-${index}'  data-answer=${index}>
                              </div>
                             </div>`;

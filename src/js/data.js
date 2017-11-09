@@ -1,24 +1,28 @@
 module.exports = [
   [
-    {text: "Antibiotics", image: require('../img/biohazard.png')},
-    {text: "Prescription Medicine", image: ""}
+    {text: "", image: require('../img/biohazard.png')},
+    {text: "Explosive", description: "It can suddenly explode.", image: ""}
   ],
   [
-    {text: "Painkillers", image: ""},
-    {text: "Resale area", image: ""}
+    {text: "", image: require('../img/biohazard.png')},
+    {text: "Flammable", description: "It can catch fire easily and it will burn quickly.", image: ""}
   ],
   [
-    {text: "Nasal Spray", image: ""},
-    {text: "Refrigerator", image: ""}
+    {text: "", image: require('../img/biohazard.png')},
+    {text: "Oxidizing Agent", description: "A capacity to oxidise (it gives off oxygen and, in this situation, it increases the chance of fire.)", image: require('../img/biohazard.png')}
   ],[
-    {text: "Opiates", image: ""},
-    {text: "Restricted Area", image: ""}
+    {text: "", image: require('../img/biohazard.png')},
+    {text: "Corrosive", description:"It will destroy or damage the surface of other things near it.", image: ""}
   ],[
-    {text: "Cannabis", image: ""},
-    {text: "Not legal", image: ""}
+    {text: "", image: require('../img/biohazard.png')},
+    {text: "Toxic", description:"It has the ability to harm and damage a living thing.", image: ""}
   ],
   [
-    {text: "Cocaine", image: ""},
-    {text: "Legal in Auckland", image: ""}
+    {text: "", image: require('../img/biohazard.png')},
+    {text: "Eco-toxic", description:"It is harmful to the environment, either by killing living things directly or by building up in the environment.", image: ""}
+  ],
+  [
+    {text: "", image: require('../img/biohazard.png')},
+    {text: "Biohazard", description:"Can cause harm.",image: ""}
   ]
 ]
