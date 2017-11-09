@@ -30,6 +30,12 @@ main > div {
   flex-grow: 1;
 }
 
+.tile {
+  height: 100px;
+}
+.tile img {
+  height: 100%;
+}
 .source {
   background-color: var(--blue-grey);
   width: 50%;
@@ -41,7 +47,7 @@ main > div {
 }
 
 .destination-droppable {
-  height: 25px;
+  min-height: 25px;
   background-color: var(--light-green)
 
 }

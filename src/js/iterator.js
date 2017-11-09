@@ -36,7 +36,10 @@ const GenerateDomElements = function(pairings) {
 const GenerateSourceElement = function (source, index) {
     let ElementTemplate =  `<div class='source'>
                                 <div class='source-draggable  isDraggable' id='src-${index}' data-answer=${index}>
-                                    <strong>${source.text} </strong>
+                                    <div class="tile">
+                                        <img src="${source.image}" />
+                                        <strong>${source.text} </strong>
+                                    </div>
                                 </div>
                             </div>`;
     return ElementTemplate;

@@ -1,17 +1,17 @@
 module.exports = [
   [
-    {text: "Antibiotics", image: "require()"},
-    {text: "Prescription Medicine", image: "require()"}
+    {text: "Antibiotics", image: require('../img/biohazard.png')},
+    {text: "Prescription Medicine", image: ""}
   ],
   [
-    {text: "Painkillers", image: "require()"},
-    {text: "Resale area", image: "require()"}
+    {text: "Painkillers", image: ""},
+    {text: "Resale area", image: ""}
   ],
   [
-    {text: "Nasal Spray", image: "require()"},
-    {text: "Refrigerator", image: "require()"}
+    {text: "Nasal Spray", image: ""},
+    {text: "Refrigerator", image: ""}
   ],[
-    {text: "Opiates", image: "require()"},
-    {text: "Restricted Area", image: "require()"}
+    {text: "Opiates", image: ""},
+    {text: "Restricted Area", image: ""}
   ]
 ]
