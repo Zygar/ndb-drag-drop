@@ -11,12 +11,17 @@ module.exports = {
         let diffTop = mirrorPos.top - dropzonePos.top,
             diffLeft = mirrorPos.left - dropzonePos.left;
 
-        $el.css('transform', 'translate(' + diffLeft + 'px, ' + diffTop + 'px)');
+        $el.css('position', 'relative');
+        $el.css('top', diffTop +'px');
+        $el.css('left', diffLeft +'px');
+
+        // $el.css('transform', 'translate(' + diffLeft + 'px, ' + diffTop + 'px)');
         // BEWARE the race condition
         setTimeout(function($el) {
             console.log("onplace firing")
             $el.css('transition', 'all 0.1s ease-in');
-            $el.css('transform','translate(0px, 0px)')
+            $el.css('top','0')
+            $el.css('left','0')
         }, 10, $el);
     },
     onWrongAnswer: function(el, origSource, dropzone){
@@ -31,13 +36,16 @@ module.exports = {
             diffLeft = dropzonePos.left - origSourcePos.left;
 
         $el.appendTo($origSource);
-        $el.css('transform', 'translate(' + diffLeft + 'px, ' + diffTop + 'px)');
+        $el.css('position', 'relative');
+        $el.css('top', diffTop +'px');
+        $el.css('left', diffLeft +'px');
 
         // BEWARE the race condition
         setTimeout(function($el) {
             console.log("wronganswer firing")
             $el.css('transition', 'all 0.1s ease-in');
-            $el.css('transform','translate(0px, 0px)')
+            $el.css('top', '0');
+            $el.css('left', '0');
         }, 10, $el);
     },
     onDropped: function(el, mirror, origSource){
@@ -52,11 +60,15 @@ module.exports = {
             diffLeft = mirrorPos.left - origSourcePos.left;
 
         // $el.appendTo($origSource);
-        $el.css('transform', 'translate(' + diffLeft + 'px, ' + diffTop + 'px)');
+        $el.css('position', 'relative');
+        $el.css('top', diffTop +'px');
+        $el.css('left', diffLeft +'px');
 
         setTimeout(function($el) {
             $el.css('transition', 'all 0.1s ease-in');
             $el.css('transform','translate(0px, 0px)')
+            $el.css('top', '0');
+            $el.css('left', '0');
         }, 10, $el);
     }
 }
