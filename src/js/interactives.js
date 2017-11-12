@@ -66,7 +66,6 @@ module.exports = {
 
         setTimeout(function($el) {
             $el.css('transition', 'all 0.1s ease-in');
-            $el.css('transform','translate(0px, 0px)')
             $el.css('top', '0');
             $el.css('left', '0');
         }, 10, $el);

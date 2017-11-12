@@ -59,6 +59,7 @@ function isAnswerCorrect(source, dest) {
 }
 
 function validateAnswer(el, source, target){   
+    var $answerBox = $(target).parent();
     if (isAnswerCorrect(source, target)) {
         // Unbind source and target
         let droppableInstance = drake.containers.indexOf(target);
@@ -66,11 +67,15 @@ function validateAnswer(el, source, target){
         let draggableInstance = drake.containers.indexOf(source);
         drake.containers.splice(draggableInstance, 1);
 
-        $(target).css("background-color", "green")
+        $answerBox.addClass("correct")
         console.log("Correct.")
     } else {
         interactives.onWrongAnswer(el, source, target);
-        $(target).css("background-color", "red")
+        
+        $answerBox.addClass("incorrect");
+        setTimeout(function($el) {
+            $answerBox.removeClass("incorrect")
+        }, 500, $answerBox);
         console.log("Incorrect.")
     }
 }
