@@ -48,13 +48,12 @@ main {
 .sources {
   background-color: var(--off-white);
   display: flex;
-  min-height: 100px;
+  margin-bottom: 30px;
   flex-grow:1;
-  text-align: center;
-  justify-content: center;
-  align-content: space-between;
-  flex-wrap: wrap;
-  /*width: 33.333%;*/
+  padding-bottom:20px;
+  overflow-x: scroll;
+  overflow-y:hidden;
+  
 }
   .source-draggable {
     margin: .5em;
@@ -75,7 +74,6 @@ main {
   .destination {
     display: flex;
     flex-basis: 250px;
-    max-width: 33.333%;
     background-color: var(--off-white);
     border-radius: 4px;
     margin: 0.5em;

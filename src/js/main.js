@@ -23,7 +23,6 @@ var drake = dragula(InitializedDraggables, {
 });
 
 var scroll = autoScroll([
-        document.querySelector('.sources'),
         document.querySelector('.destinations')
     ],{
     margin: 40,
@@ -36,6 +35,18 @@ var scroll = autoScroll([
 });
 
 
+/* Hacks */ 
+    // Prevents scrolling while dragging on mobile
+    window.addEventListener( 'touchmove', function() {});
+    drake.on('drag', function(el){
+        $(document).on('touchstart', function(e) {
+            e.preventDefault();
+        });
+        $('.sources').css('overflow-x', 'hidden')
+        
+    });
+
+
 /* Event Bindings */
 
 var currentMirrorInstance;
@@ -45,12 +56,14 @@ drake.on('cloned', function(clone) {
 });
 
 drake.on('cancel', function(el, source) {
-    // $(document).off('touchstart');
+    $(document).off('touchstart');
+    $('.sources').css('overflow-x', 'scroll')
     interactives.onDropped(el, currentMirrorInstance, source);
 });
 
 drake.on('drop', function(el, target, source) {
-    // $(document).off('touchstart');
+    $(document).off('touchstart');
+    $('.sources').css('overflow-x', 'scroll')
     interactives.onPlace(el, currentMirrorInstance, target);
     validateAnswer(el, source, target)
 });
@@ -72,6 +85,7 @@ function validateAnswer(el, source, target){
         let draggableInstance = drake.containers.indexOf(source);
         drake.containers.splice(draggableInstance, 1);
 
+        $(source).hide();
         $answerBox.addClass("correct")
         console.log("Correct.")
     } else {
