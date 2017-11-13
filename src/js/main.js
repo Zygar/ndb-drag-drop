@@ -14,6 +14,11 @@ const InitializedDomElements = iterator(inputData);
 const InitializedDraggables = GetArrayOfDraggables(InitializedDomElements);
 // Returns a flattened array of the drag/drop targets for Dragula
 
+// Initialize Answer Counter
+var totalCount = inputData.length;
+var correctCount = 0;
+$('#total-count').text(totalCount);
+$('#correct-count').text(correctCount);
 
 // Initialize & Configure Dragula
 var drake = dragula(InitializedDraggables, {
@@ -86,8 +91,14 @@ function validateAnswer(el, source, target){
         drake.containers.splice(draggableInstance, 1);
 
         $(source).parent().hide();
+        correctCount++;
+        $('#correct-count').text(correctCount);
+        if(correctCount == totalCount) {
+            $('body').addClass('complete')
+        }
         $answerBox.addClass("correct")
-        console.log("Correct.")
+        
+
     } else {
         interactives.onWrongAnswer(el, source, target);
         
@@ -101,6 +112,7 @@ function validateAnswer(el, source, target){
 
 
 /* TODO 
-    - Flash styles on correct or incorrect answer.
-    - Flash "Nice! All complete." on all complete answers.
+   - Complete answer counter
+   - Flash "Nice! All complete." on all complete answers.
+   - Refactor in future uses 
 */
