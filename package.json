@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "dom-autoscroller": "^2.3.3",
     "dragula": "^3.7.2",
     "jquery": "^3.2.1",
     "jquery-ui-touch-punch": "^0.2.3",

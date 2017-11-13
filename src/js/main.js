@@ -5,6 +5,7 @@ const iterator = require("./iterator.js");
 const GetArrayOfDraggables = require("./get-array-of-draggables.js")
 const canIDropHere = require("./can-i-drop-here.js");
 const interactives = require("./interactives.js");
+const autoScroll = require('dom-autoscroller');
 
 const InitializedDomElements = iterator(inputData);  
 // Iterator populates DOM and returns two arrays of the created objects.
@@ -18,6 +19,19 @@ const InitializedDraggables = GetArrayOfDraggables(InitializedDomElements);
 var drake = dragula(InitializedDraggables, {
     accepts: function(el, target, source) {
         return canIDropHere(el, target, source)  // true or false
+    }
+});
+
+var scroll = autoScroll([
+        document.querySelector('.sources'),
+        document.querySelector('.destinations')
+    ],{
+    margin: 40,
+    maxSpeed: 10,
+    scrollWhenOutside: true,
+    autoScroll: function(){
+        //Only scroll when the pointer is down, and there is a child being dragged. 
+        return this.down && drake.dragging;
     }
 });
 
