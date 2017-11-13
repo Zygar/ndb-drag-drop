@@ -35,15 +35,6 @@ var scroll = autoScroll([
     }
 });
 
-/* Hacks */ 
-    // Prevents scrolling while dragging on mobile
-    window.addEventListener( 'touchmove', function() {});
-    drake.on('drag', function(el){
-        $(document).on('touchstart', function(e) {
-            e.preventDefault();
-        });
-    });
-
 
 /* Event Bindings */
 
@@ -54,12 +45,12 @@ drake.on('cloned', function(clone) {
 });
 
 drake.on('cancel', function(el, source) {
-    $(document).off('touchstart');
+    // $(document).off('touchstart');
     interactives.onDropped(el, currentMirrorInstance, source);
 });
 
 drake.on('drop', function(el, target, source) {
-    $(document).off('touchstart');
+    // $(document).off('touchstart');
     interactives.onPlace(el, currentMirrorInstance, target);
     validateAnswer(el, source, target)
 });
