@@ -85,7 +85,7 @@ function validateAnswer(el, source, target){
         let draggableInstance = drake.containers.indexOf(source);
         drake.containers.splice(draggableInstance, 1);
 
-        $(source).hide();
+        $(source).parent().hide();
         $answerBox.addClass("correct")
         console.log("Correct.")
     } else {
