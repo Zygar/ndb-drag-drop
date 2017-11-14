@@ -106,7 +106,6 @@ function validateAnswer(el, source, target){
         setTimeout(function($el) {
             $answerBox.removeClass("incorrect")
         }, 500, $answerBox);
-        console.log("Incorrect.")
     }
 }
 

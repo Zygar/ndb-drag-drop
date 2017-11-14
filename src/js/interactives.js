@@ -1,6 +1,5 @@
 module.exports = {
     onPlace: function(el, mirror, dropzone) {
-        console.log(el,mirror,dropzone);
         let $el = $(el),
             $mirror = $(mirror),
             $dropzone = $(dropzone);
@@ -18,7 +17,6 @@ module.exports = {
         // $el.css('transform', 'translate(' + diffLeft + 'px, ' + diffTop + 'px)');
         // BEWARE the race condition
         setTimeout(function($el) {
-            console.log("onplace firing")
             $el.css('transition', 'all 0.1s ease-in');
             $el.css('top','0')
             $el.css('left','0')
@@ -42,7 +40,6 @@ module.exports = {
 
         // BEWARE the race condition
         setTimeout(function($el) {
-            console.log("wronganswer firing")
             $el.css('transition', 'all 0.1s ease-in');
             $el.css('top', '0');
             $el.css('left', '0');
