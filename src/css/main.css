@@ -46,11 +46,11 @@ main {
 }
 
 .sources {
-  background-color: var(--off-white);
+  background-color: var(--light-blue);
   display: flex;
   overflow-x: scroll;
   overflow-y:hidden;
-  min-height: 120px;
+  min-height: 150px;
 }
   .source {
     margin: 1em;
@@ -97,7 +97,7 @@ main {
     margin: 0;
   }
   .destination-droppable {
-    flex-basis: 80px;
+    flex-basis: 120px;
     flex-grow: 0;
     flex-shrink: 0;
     background-color: #ddd;
@@ -106,21 +106,21 @@ main {
 
 .tile {
   width:100%;
-  height: 80px;
+  height: 120px;
   padding: 10px;
   padding-top: 20px;
   overflow: hidden;
-  background-color: var(--off-white);
+  background-color: #fff;
   border: 1px solid #ddd;
   box-shadow: 2px 2px 2px rgba(0,0,0,0.25);
-  text-align: center;
+  display: flex;
 }
 
 .tile img {
-  width: 100%;
-  height:100%;
+  height:80px;
   pointer-events: none;
   margin:0;
+  margin-right: 10px;
 }
 
 .correct {
