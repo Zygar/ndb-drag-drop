@@ -79,10 +79,12 @@ main {
     border-radius: 4px;
     margin: 0.5em;
     flex-direction: column;
+    border: 1px solid black;
   }
 
   .destination .meta {
-    margin-left: 1em
+    padding: 1em;
+    text-align: center;
   } 
   .destination h2, .destination p {
     font-size: 0.8em;
@@ -98,15 +100,20 @@ main {
     flex-basis: 80px;
     flex-grow: 0;
     flex-shrink: 0;
-    background-color: var(--blue-grey)
+    background-color: #ddd;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.7)
   }
 
 .tile {
   width:100%;
   height: 80px;
-  padding: 2px;
+  padding: 10px;
+  padding-top: 20px;
   overflow: hidden;
-  background-color: var(--blue-grey);
+  background-color: var(--off-white);
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.25);
+  text-align: center;
 }
 
 .tile img {
