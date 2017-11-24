@@ -24,7 +24,7 @@ const GenerateDomElements = function(pairings) {
     // Append sources and destinations to DOM 
 
     var sourcesElements = $('.sources').append(ShuffleArray(sourcesTemplates));
-    var destinationsElements = $('.destinations').append(ShuffleArray(destinationsTemplates));
+    var destinationsElements = $('.destinations').append(destinationsTemplates);
     
     // RETURN a multivariate array of DOM objects: sources and destinations.
     // This will be passed on to Dragula later 

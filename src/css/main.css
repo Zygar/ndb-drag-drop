@@ -49,6 +49,7 @@ main {
   background-color: var(--light-blue);
   display: flex;
   overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
   overflow-y:hidden;
   min-height: 150px;
 }
@@ -69,7 +70,10 @@ main {
   align-content: flex-start;
   padding: .5em;
   overflow: scroll;
-  flex-grow: 1
+  -webkit-overflow-scrolling: touch;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: flex-start;
 }
 
   .destination {
@@ -80,18 +84,25 @@ main {
     margin: 0.5em;
     flex-direction: column;
     border: 1px solid black;
+    min-height: 220px
   }
 
   .destination .meta {
     padding: 1em;
-    text-align: center;
   } 
   .destination h2, .destination p {
-    font-size: 0.8em;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
     margin:0;
     margin-bottom:.25em;
+  }
+
+  .destination h2 {
+    font-size: 0.7em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .destination p {
+    font-size: 1.1em;
   }
   .destination p {
     margin: 0;
@@ -108,12 +119,12 @@ main {
   width:100%;
   height: 120px;
   padding: 10px;
-  padding-top: 20px;
   overflow: hidden;
   background-color: #fff;
   border: 1px solid #ddd;
   box-shadow: 2px 2px 2px rgba(0,0,0,0.25);
   display: flex;
+  align-items: center;
 }
 
 .tile img {
