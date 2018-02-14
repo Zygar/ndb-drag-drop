@@ -1,29 +1,34 @@
 module.exports = [
   [
-    {text: "Beclomethasone aqueous 50 mcg nasal spray", image: require('../img/nasal-spray.png')},
-    {text: "Retail area", description: "Pharmacy Medicine", image: ""}
-  ],[
-    {text: "Nicotine gum", image: require('../img/nicotine-gum.png')},
-    {text: "Retail area", description:"General Sale Medicine", image: ""}
+    {text: "Idle time due to  factory computer  network  downtime", image: ""},
+    {text: "Indirect labour  cost", description: "", image: ""}
   ],
   [
-    {text: "Hydrocortisone cream 1%, 30 g ", image: require('../img/steroids.png')},
-    {text: "Retail area", description:"Pharmacist Only Medicine", image: ""}
+    {text: "Fabric used to  cover the seats of chairs", image: ""},
+    {text: "Direct material cost", description: "", image: ""}
   ],
   [
-    {text: "Methylated Spirits 100ml", image: require('../img/meths.png')},
-    {text: "Retail area", description: "Hazardous Substance. Shelf 1.5m above floor.",image: ""}
+    {text: "Office Rent", image: ""},
+    {text: "Non-manufacturing cost", description: "", image: ""}
   ],
   [
-    {text: "Panadeine tablets, 24 tablets", image: require('../img/painkillers.png')},
-    {text: "Secure Area Exempted Drug", description: "Pharmacist Only Medicine", image: ""}
+    {text: "Glue and staples used to fix the fabric to  the seats of chairs", image: ""},
+    {text: "Indirect material cost", description: "", image: ""}
   ],
   [
-    {text: "Amoxycillin 250mg Capsules", image:require('../img/antibiotics.png')},
-    {text: "Dispensary", description: "Prescription Medicine", image: ""}
+    {text: "Factory Insurance", image: ""},
+    {text: "Other manufacturing overhead cost", description: "", image: ""}
   ],
   [
-    {text: "Actrapid Insulin", image: require('../img/insulin.png')},
-    {text: "Dispensary", description:"Refrigerator", image: ""}
-  ]
+    {text: "Cost of repairing factory machinery", image: ""},
+    {text: "Other manufacturing overhead cost", description: "", image: ""}
+  ],
+  [
+    {text: "Commission paid to sales team", image: ""},
+    {text: "Non-manufacturing cost", description: "", image: ""}
+  ],
+  [
+    {text: "Cost of assembly-line workers", image: ""},
+    {text: "Direct labour cost", description: "", image: ""}
+  ],
 ]
