@@ -9,7 +9,7 @@ module.exports = [
   ],
   [
     {text: "Office Rent", image: ""},
-    {text: "Non-manufacturing cost", description: "", image: ""}
+    {text: "Non-manufacturing cost", description: "", image: "", dupe: 1}
   ],
   [
     {text: "Glue and staples used to fix the fabric to  the seats of chairs", image: ""},
@@ -17,18 +17,18 @@ module.exports = [
   ],
   [
     {text: "Factory Insurance", image: ""},
-    {text: "Other manufacturing overhead cost", description: "", image: ""}
+    {text: "Other manufacturing overhead cost", description: "", image: "", dupe: 1}
   ],
   [
     {text: "Cost of repairing factory machinery", image: ""},
-    {text: "Other manufacturing overhead cost", description: "", image: ""}
+    {text: "Other manufacturing overhead cost", description: "", image: "",  dupe: 1}
   ],
   [
     {text: "Commission paid to sales team", image: ""},
-    {text: "Non-manufacturing cost", description: "", image: ""}
+    {text: "Non-manufacturing cost", description: "", image: "",  dupe: 1}
   ],
   [
     {text: "Cost of assembly-line workers", image: ""},
-    {text: "Direct labour cost", description: "", image: ""}
+    {text: "Direct labour cost", description: "", image: "" }
   ],
 ]
