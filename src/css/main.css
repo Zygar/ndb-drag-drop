@@ -611,9 +611,11 @@ main {
   margin-bottom: 2em
 }
 .modal-wrapper {
-  position: fixed;
+  position: absolute;
+  z-index: 5;
   height: 100%;  
   width: 100%;
+  top: 0;
   background-color: rgba(0,0,0,0.5)
 }
 
@@ -629,4 +631,30 @@ main {
   width: 100%;
   box-shadow: 0 2px var(--dark-green);
   border: none;
+}
+
+.scroll-helper {
+  position: fixed;
+  bottom:0;
+  font-size: .85em;
+  line-height: 2em;
+  padding: .6em;
+  text-align: center;
+  z-index: 3;
+  background-color: rgba(255,255,255,0.5);
+  width: 100%;
+
+}
+
+.close {
+  height: 30px;
+  width: 30px;
+  border: none;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 0;
+  position: absolute;
+  left: 20px;
+  border-radius: 15px;
+  text-align: center;
 }

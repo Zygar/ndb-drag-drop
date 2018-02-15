@@ -20,6 +20,15 @@ var correctCount = 0;
 $('#total-count').text(totalCount);
 $('#correct-count').text(correctCount);
 
+// Initialize Modal Events
+$("#close-modal").click(function() {
+    $(".modal-wrapper").addClass("hidden")
+})
+
+$("#close-helper").click(function() {
+    $(".scroll-helper").addClass("hidden")
+})
+
 // Initialize & Configure Dragula
 var drake = dragula(InitializedDraggables, {
     accepts: function(el, target, source) {
