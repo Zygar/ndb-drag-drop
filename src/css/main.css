@@ -200,6 +200,11 @@ main {
   height: 70px;
 }
 
+/* Show dashes when we're dragging */
+
+.gu-unselectable .destination-droppable { 
+  border: 2px dashed rgba(255,255,255,0.2);
+}
 
 @media screen and (max-width: 540px) {
   .destination {
