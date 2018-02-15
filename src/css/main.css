@@ -37,7 +37,12 @@ header {
   color: #fff;
 }
 
-h1 {font-size: 1em;}
+h1 {
+  font-size: 1em;
+  max-width: 35em;
+  margin-left: auto;
+  margin-right: auto;
+}
 main {
   width: 100%;
   height: 100%;
@@ -45,13 +50,21 @@ main {
   flex-direction: column;
 }
 
+.sources-wrapper {
+    background-color: #00a3c1;
+
+}
+
 .sources {
-  background-color: var(--light-blue);
+
   display: flex;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   overflow-y:hidden;
   min-height: 150px;
+  width: 270px;
+  margin-left: auto;
+  margin-right: auto;
 }
   .source {
     margin: 1em;
@@ -79,12 +92,12 @@ main {
   .destination {
     display: flex;
     flex-basis: 250px;
-    background-color: var(--off-white);
+    background-color: var(--light-blue);
     border-radius: 4px;
     margin: 0.5em;
     flex-direction: column;
     border: 1px solid black;
-    min-height: 220px
+    min-height: 280px
   }
 
   .destination .meta {
@@ -92,13 +105,15 @@ main {
   } 
   .destination h2, .destination p {
     margin:0;
-    margin-bottom:.25em;
+    /*margin-bottom:.25em;*/
   }
 
   .destination h2 {
-    font-size: 0.7em;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+    font-size: 1.25em;
+    color: #fff;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+    /*letter-spacing: 0.5px;
+    text-transform: uppercase;*/
   }
 
   .destination p {
@@ -111,8 +126,8 @@ main {
     flex-basis: 140px;
     flex-grow: 0;
     flex-shrink: 0;
-    background-color: #ddd;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.7)
+    background-color: #33454e;
+    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, .7);
   }
 
 .tile {
@@ -148,14 +163,14 @@ main {
 
 
 .completion-status {
-  /*min-height: 2em;*/
-  background-color: var(--blue-grey);
+  background-color: var(--light-blue);
   font-weight: bold;
   color: #fff;
-  height: 2em;
-  line-height:2em;
   text-align: center;
-  font-size: 1.25em;
+  font-size: 1.5em;
+  margin: 0;
+  border-top: 1px solid rgba(25,25,25,0.2);
+  padding: .5em;
 }
 * {
   transition: min-height .5s ease-in-out, height .5s ease-in-out;
