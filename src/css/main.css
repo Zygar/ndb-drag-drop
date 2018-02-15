@@ -605,6 +605,9 @@ main {
   margin: 1em;
   background-color: white;
   padding: 20px;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .modal h1 {
