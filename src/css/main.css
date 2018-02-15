@@ -661,3 +661,10 @@ main {
   border-radius: 15px;
   text-align: center;
 }
+
+
+@media screen and (min-width: 550px) {
+  .scroll-helper {
+    display:none;
+  }
+}
