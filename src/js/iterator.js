@@ -85,7 +85,7 @@ const GenerateDestinationElement = function (dest, index) {
 }
 
 const GenerateDoubleDestinationElement = function (dest, indexOne, indexTwo) {
-    let ElementTemplate = `<div class='destination'>
+    let ElementTemplate = `<div class='destination  dupe-dest'>
                              <div class='destination-droppable  isDraggable' id='dest-${indexOne}'  data-answer="${dest.text}" data-otherAnswer="${indexTwo}">
                              </div>
                              <div class='destination-droppable  isDraggable' id='dest-${indexTwo}'  data-answer="${dest.text}" data-otherAnswer="${indexTwo}">
