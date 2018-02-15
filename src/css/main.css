@@ -15,7 +15,7 @@
    Your Styles
    ========================================================================== */
 
-* {box-sizing: border-box;}
+* {box-sizing: border-box; user-select: none;}
 
 html, body {height:100%;}
 
@@ -182,7 +182,7 @@ main {
 }
 .complete .completion-status {
   background-color: var(--light-green);
-  height: 5em;
+  padding: 1em 1em 1.1em 1em;
 }
 
 .complete .completion-status::after {
