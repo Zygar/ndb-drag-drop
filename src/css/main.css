@@ -42,6 +42,7 @@ h1 {
   max-width: 35em;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 main {
   width: 100%;
@@ -237,4 +238,395 @@ main {
   .completion-status {
     font-size: 1em;
   }
+}
+
+
+/* Copy Pasted Code from "Structured Research Process" */
+
+.example {
+    width: 100%;
+    background-color: var(--off-black);
+    margin: 10px 0;
+    -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,0.4);
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.4);
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.example-header {
+    background-color: var(--light-blue);
+    width: 100%;
+    height: 70px;
+    padding-top: 12px;
+}
+
+.example-draggable {
+    width: 180px;
+    height: 44px;
+    border-radius: 3px;
+    background-color: #fff;
+    position: relative;
+    margin: 0 auto;
+    color: #9ea5b5;
+    font-size: 20px;
+    padding-top: 8px;
+    -webkit-animation-duration: 5s;
+            animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    z-index: 1;
+    text-align: center
+}
+
+.example-draggable.animated {
+    -webkit-animation-name: draggableAnimation;
+            animation-name: draggableAnimation;
+}
+
+@-webkit-keyframes draggableAnimation {
+    0% {
+        -webkit-transform: translate(0,0) scale(1);
+                transform: translate(0,0) scale(1);
+    }
+    
+    55% {
+        -webkit-transform: translate(0,0) scale(1);
+                transform: translate(0,0) scale(1);
+    }
+    
+    60% {
+        -webkit-transform: translate(0,0) scale(1.1);
+                transform: translate(0,0) scale(1.1);
+    }
+    
+    100% {
+        -webkit-transform: translate(0,120px) scale(1.1);
+                transform: translate(0,120px) scale(1.1);
+    }
+}
+
+@keyframes draggableAnimation {
+    0% {
+        -webkit-transform: translate(0,0) scale(1);
+                transform: translate(0,0) scale(1);
+    }
+    
+    55% {
+        -webkit-transform: translate(0,0) scale(1);
+                transform: translate(0,0) scale(1);
+    }
+    
+    60% {
+        -webkit-transform: translate(0,0) scale(1.1);
+                transform: translate(0,0) scale(1.1);
+    }
+    
+    100% {
+        -webkit-transform: translate(0,120px) scale(1.1);
+                transform: translate(0,120px) scale(1.1);
+    }
+}
+
+.example-draggable:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
+    opacity: 0;
+    -webkit-animation-duration: 5s;
+            animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+
+.example-draggable.animated:before {
+    -webkit-animation-name: shadowAnimation;
+            animation-name: shadowAnimation;
+}
+
+@-webkit-keyframes shadowAnimation {
+    0% {
+        opacity: 0;
+    }
+    
+    55% {
+        opacity: 0;
+    }
+    
+    60% {
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes shadowAnimation {
+    0% {
+        opacity: 0;
+    }
+    
+    55% {
+        opacity: 0;
+    }
+    
+    60% {
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+}
+
+.example-dropable {
+
+    width: 220px;
+    height: 85px;
+    margin: 0 auto;
+    margin-top: 40px;
+    color: #fff;
+    font-size: 30px;
+    padding-top: 19px;
+    position: relative;
+    background-color: #33454e;
+    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, .7);
+    text-align: center;
+}
+
+.example-dropable:before {
+    content: "------------";
+    padding-top: 19px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    -webkit-box-shadow: 0 0 0 1px rgba(255,255,255,.05), inset 0 0 10px 0 rgba(0,0,0,.5);
+    box-shadow: 0 0 0 1px rgba(255,255,255,.05), inset 0 0 10px 0 rgba(0,0,0,.5);
+    background-color: #f9f9f9;
+    opacity: 0;
+    -webkit-animation-duration: 5s;
+            animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+
+.example-dropable.animated:before {
+    -webkit-animation-name: dropableShadowAnimation;
+            animation-name: dropableShadowAnimation;
+}
+
+@-webkit-keyframes dropableShadowAnimation {
+    0% {
+        opacity: 0;
+    }
+    
+    70% {
+        opacity: 0;
+    }
+    
+    73% {
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes dropableShadowAnimation {
+    0% {
+        opacity: 0;
+    }
+    
+    70% {
+        opacity: 0;
+    }
+    
+    73% {
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+}
+
+#mouse {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 52px;
+    -webkit-animation-duration: 5s;
+            animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    z-index: 2;
+}
+
+#mouse.animated {
+    -webkit-animation-name: handAnimation;
+            animation-name: handAnimation;
+}
+
+@-webkit-keyframes handAnimation {
+    0% {
+        -webkit-transform: translate(0,0);
+                transform: translate(0,0);
+    }
+    
+    50% {
+        -webkit-transform: translate(-160px,-160px) scale(1);
+                transform: translate(-160px,-160px) scale(1);
+    }
+    
+    55% {
+        -webkit-transform:translate(-160px,-160px)  scale(0.7);
+                transform:translate(-160px,-160px)  scale(0.7);
+    }
+    
+    60% {
+        -webkit-transform:translate(-160px,-160px)  scale(1);
+                transform:translate(-160px,-160px)  scale(1);
+    }
+    
+    100% {
+        -webkit-transform: translate(-160px,-40px);
+                transform: translate(-160px,-40px);
+    }
+}
+
+@keyframes handAnimation {
+    0% {
+        -webkit-transform: translate(0,0);
+                transform: translate(0,0);
+    }
+    
+    50% {
+        -webkit-transform: translate(-160px,-160px) scale(1);
+                transform: translate(-160px,-160px) scale(1);
+    }
+    
+    55% {
+        -webkit-transform:translate(-160px,-160px)  scale(0.7);
+                transform:translate(-160px,-160px)  scale(0.7);
+    }
+    
+    60% {
+        -webkit-transform:translate(-160px,-160px)  scale(1);
+                transform:translate(-160px,-160px)  scale(1);
+    }
+    
+    100% {
+        -webkit-transform: translate(-160px,-40px);
+                transform: translate(-160px,-40px);
+    }
+}
+
+#pulse1, #pulse2 {
+    -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+    -webkit-animation-duration: 5s;
+            animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center;
+}
+
+#pulse1.animated, #pulse2.animated {
+    -webkit-animation-name: pulse;
+            animation-name: pulse;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        opacity: 0;
+    }
+    
+    50% {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        opacity: 1;
+    }
+    
+    70% {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        opacity: 0;
+    }
+}
+
+
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        opacity: 0;
+    }
+    
+    50% {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        opacity: 1;
+    }
+    
+    70% {
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.modal {
+  margin: 1em;
+  background-color: white;
+  padding: 20px;
+}
+
+.modal h1 {
+  margin-bottom: 2em
+}
+.modal-wrapper {
+  position: fixed;
+  height: 100%;  
+  width: 100%;
+  background-color: rgba(0,0,0,0.5)
+}
+
+.button {
+  line-height: 3em;
+  font-family: Lato;
+  font-weight: bold;
+  font-size: 1.25em;
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+  background-color: var(--light-green);
+  border-radius: 4px;
+  width: 100%;
+  box-shadow: 0 2px var(--dark-green);
+  border: none;
 }
