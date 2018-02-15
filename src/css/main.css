@@ -199,3 +199,37 @@ main {
 .dupe-dest .tile {
   height: 70px;
 }
+
+
+@media screen and (max-width: 540px) {
+  .destination {
+    min-height: auto;
+  }
+  .destination-droppable {
+    flex-basis: 60px;
+  }
+  .dupe-dest .destination-droppable {
+    flex-basis: 60px;
+  }
+  .tile {
+    height: auto;
+    min-height: 60px;
+    border-radius: 4px;
+  }
+  .dupe-dest .tile {
+    height: 60px;
+  }
+  .destination h2 {
+    font-size: 1em;
+  }
+  .sources {
+    min-height: auto
+  }
+  h1 {
+    font-size: .8em;
+    font-weight: 500;
+  }
+  .completion-status {
+    font-size: 1em;
+  }
+}
